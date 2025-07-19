@@ -21,11 +21,11 @@ def main():
 
     Asteroid.containers = (updatable, drawable, asteroids)
     AsteroidField.containers = (updatable,)
-    asteroidfield = AsteroidField()
-
+    Player.containers = (updatable, drawable)
     Shot.containers = (updatable, drawable, shots)
 
-    Player.containers = (updatable, drawable)
+    asteroidfield = AsteroidField()
+    
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     while True:
