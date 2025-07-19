@@ -33,6 +33,8 @@ class Player(CircleShape):
     def move(self, dt):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         self.velocity += forward * (PLAYER_SPEED / 20) * dt
+        if self.velocity.length() > PLAYER_SPEED:
+            self.velocity.scale_to_length(PLAYER_SPEED)
 
     def shoot(self):
         if self.shoot_cooldown <= 0:
