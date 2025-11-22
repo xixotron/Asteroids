@@ -7,9 +7,16 @@ from player import Player
 from shot import Shot
 
 from constants import *
+import logger
+
 
 def main():
     pygame.init()
+
+    print("Starting Asteroids")
+    print(f"Screen width: {SCREEN_WIDTH}")
+    print(f"Screen height: {SCREEN_HEIGHT}")
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0
@@ -25,10 +32,11 @@ def main():
     Shot.containers = (updatable, drawable, shots)
 
     asteroidfield = AsteroidField()
-    
+
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     while True:
+        logger.log_state()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
@@ -59,4 +67,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
